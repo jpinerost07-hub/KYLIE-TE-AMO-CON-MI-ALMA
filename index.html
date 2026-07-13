@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Kylie ❤️</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+      color: #f5f5f5;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      color: #ff6b6b;
+      animation: float 8s linear infinite;
+      opacity: 0.7;
+    }
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(0deg); }
+      100% { transform: translateY(-100vh) rotate(360deg); }
+    }
+    .button-yes {
+      transition: all 0.4s;
+    }
+    .button-yes:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 30px #ff6b6b;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 md:p-6 relative overflow-hidden">
+  <div id="hearts"></div>
+
+  <div class="max-w-xl mx-auto text-center z-10 w-full">
+    <h1 class="text-5xl md:text-6xl font-bold mb-4 text-white">
+      Kylie ❤️
+    </h1>
+    <p class="text-xl text-gray-300 mb-8">De parte de Alex, después de 6 meses</p>
+
+    <!-- === TU FOTO AQUÍ === -->
+    <div class="mb-10">
+      <div class="w-56 h-56 md:w-64 md:h-64 mx-auto rounded-3xl overflow-hidden border-4 border-white/30 shadow-2xl">
+        <img id="main-image" src="https://i.imgur.com/TU-LINK-AQUÍ.jpg" 
+             alt="Nosotros" class="w-full h-full object-cover">
+      </div>
+    </div>
+
+    <p class="text-2xl leading-relaxed mb-10 max-w-lg mx-auto">
+      Eres el amor de mi vida.<br>
+      Por ti doy mi vida.<br>
+      Eres única, mi mexicana preciosa.
+    </p>
+
+    <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-7 md:p-8 mb-12 text-left">
+      <h2 class="text-xl font-semibold mb-5 text-center">Nuestros momentos</h2>
+      <ul class="space-y-4 text-gray-200 text-[17px]">
+        <li class="flex gap-3"><span class="text-red-400">❤️</span> Las noches que nos desvelamos hablando hasta dormir solo 3 horas</li>
+        <li class="flex gap-3"><span class="text-red-400">❤️</span> Todas las veces que hablamos de amor y nos entregamos aunque estemos lejos</li>
+        <li class="flex gap-3"><span class="text-red-400">❤️</span> Cada risa, cada sueño y cada “te extraño” que nos acerca más</li>
+      </ul>
+    </div>
+
+    <div class="mb-12">
+      <p class="text-lg mb-4">Nuestra canción:</p>
+      <iframe width="100%" height="90" 
+              src="https://www.youtube.com/embed/Y8P191pylHc" 
+              title="Simplemente Gracias - Calibre 50" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen class="rounded-2xl shadow-xl">
+      </iframe>
+    </div>
+
+    <h2 class="text-3xl font-bold mb-8">¿Quieres ser mi novia, Kylie?</h2>
+
+    <button onclick="acceptProposal()" 
+            class="button-yes bg-white text-black font-bold text-2xl px-14 py-8 rounded-3xl flex items-center gap-3 mx-auto shadow-lg">
+      <i class="fas fa-heart"></i>
+      SÍ, QUIERO SER TU NOVIA
+    </button>
+
+    <p class="mt-12 text-sm text-gray-400">Con todo mi amor,<br><strong>Alex</strong></p>
+  </div>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = Math.random() * 5 + 7 + 's';
+      heart.style.fontSize = Math.random() * 18 + 20 + 'px';
+      document.getElementById('hearts').appendChild(heart);
+      setTimeout(() => heart.remove(), 16000);
+    }
+    setInterval(createHeart, 280);
+
+    function acceptProposal() {
+      const script = document.createElement('script');
+      script.src = "https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js";
+      document.head.appendChild(script);
+      
+      setTimeout(() => {
+        confetti({
+          particleCount: 250,
+          spread: 80,
+          origin: { y: 0.6 }
+        });
+        alert("❤️ ¡Te amo, Kylie! Esto es solo el comienzo de nuestra historia.");
+      }, 400);
+    }
+  </script>
+</body>
+</html>
